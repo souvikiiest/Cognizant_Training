@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ACTB COnnection Portal</title>
+        <style>
+            body{
+                background-color:#EED426;
+            }
+            h1{
+                font-family: Verdana;
+                text-align: center;
+                color:#006666;
+            }
+            form{
+                text-align: center;
+            }
+            #rentalcost,th,td{
+                border: 1px solid black;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>ACTB Connection Portal</h1>
+        <form>
+            <label>Customer Name</label>
+            <input type="text" name="custname" id="name" placeholder="Enter the customer name">
+            <br>
+            <label>Customer Email</label>
+            <input type="email" name="email" placeholder="abc@gmail.com">
+            <br>
+            <label>Mobile Number</label>
+            <input type="text" name="mobile" placeholder="Enter the Mobile Number" max="10" pattern="[789]{1}[0-9]{9}">
+            <br>
+            <label>Type of Broadband</label> 
+            <select name="conntype" value="connectiontype" id="connectiontype">
+                <option id="Pre" value="Pre" selected>Pre</option>
+                <option id="Post" value="Post">Post</option>
+            </select>
+            <br>
+            <label>Scheme Name</label>
+            <input type="radio" name="scheme" id="scheme1" value="Local">Local
+            <input type="radio" name="scheme" id="scheme2" value="STD">STD
+            <input type="radio" name="scheme" id="scheme3" value="FullTalkTime">FullTalkTime
+            <br>
+            <label>Connection Duration</label>
+            <input type="number" name="duration" id="duration" min="1" max="12">
+            <br>
+            <span>
+                <input type="button" value="Calculate Bill Amount" onclick="TotalRental()" name="submit">
+                <button type="Reset" name="clear">Reset</button>
+            </span>
+            <br>
+            <div id="result" name="result"></div>
+            <br>
+        </form>
+        <table id="rentalcost" value="rentalcost">
+            <caption>Rental Cost Table</caption>
+            <tr>
+                <th>Connection Type</th>
+                <th>Call Limit</th>
+                <th>Monthly Rental</th>
+            </tr>
+            <tr>
+                <td>Pre</td>
+                <td>500</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>Post</td>
+                <td>Unlimited</td>
+                <td>150</td>
+            </tr>
+        </table>
+        <script>
+        
+        function TotalRental()
+        {
+            var month=document.getElementById("duration").value;
+            var conn=document.getElementById("connectiontype");
+            var ctt=conn.options[conn.selectedIndex].value;
+            var cpm=0;
+            var mr=0;
+            if(document.getElementById("scheme1").checked)
+            {
+                cpm=200;
+            }
+            if(document.getElementById("scheme2").checked)
+            {
+                cpm=350;
+            }
+            if(document.getElementById("scheme3").checked)
+            {
+                cpm=500;
+            }
+            if(ctt=="Pre")
+            {
+                mr=75;
+            }
+            if(ctt=="Post")
+            {
+                mr=150;
+            }
+            var rt=((month*cpm)+mr);
+            document.getElementById("result").innerHTML="The Total Monthly Rental Cost is Rs. " +rt;
+        }
+        </script>
+    </body>
+</html>
