@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="js/script.js"></script>
+    <title>menu-item-list</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a id="home-text" href="#">Movie Cruiser</a></li>
+                <li><img id="logo" src="images/logo.jpg" alt="img" height="40px" width="40px"></li>
+                <li><a id="menu" href="movie-list-customer.html">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="page-title">
+        <p>Edit Movie</p>
+    </div>
+    <form onsubmit="return validation()">
+        <div>
+            <div id="title-label" class="edit-menu-column">
+                <label for="title">Title</label>
+            </div>
+            <div class="edit-menu-column">
+                <input type="text" id="title" name="title" placeholder="Avengers - End Game" size="80">
+            </div>
+        </div>
+        <table id="edit-meanu-table">
+            <tr>
+                <th><label for="boxOffice">Gross (&dollar;)</label></th>
+                <th><label for="inStock">Active</label></th>
+                <th><label for="dateOfLaunch">Date of Launch</label></th>
+                <th><label for="category">Genre</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" id="boxOffice" placeholder="2787965087"></td>
+                <td>
+                    <input type="radio" id="inStock-yes" value="yes" name="inStock">
+                    <label for="inStock-yes">Yes</label>
+                    <input type="radio" id="inStock-no" value="no" name="inStock">
+                    <label for="inStock-no">No</label>
+                </td>
+                <td><input type="date" id="dateOfLaunch" name="dateOfLaunch" </td>
+                    <td>
+                        <select name="category" id="category">
+                            <option value="Superhero" selected>Superhero</option>
+                            <option value="Science Friction" >Science Friction</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Thriller">Thriller</option>
+                        </select>
+                    </td>
+            </tr>
+        </table>
+        <div class="edit-menu-column">
+            <input type="checkbox" id="hasTeaser" name="hasTeaser" value="hasTeaser" checked>
+            <label id="hasTeaser" for="hasTeaser">Has Teaser</label>
+        </div>
+        <button type="submit" id="submit" name="submit">Save</button>
+    </form>
+    <footer>
+        <p class="footer">Copyright &copy; 2019</p>
+    </footer>
+</body>
+
+</html>
